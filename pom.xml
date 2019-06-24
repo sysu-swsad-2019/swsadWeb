@@ -308,7 +308,7 @@
   </dependencies>
 
   <build>
-    <finalName>mySSM</finalName>
+    <finalName>swsadWeb</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

@@ -69,12 +69,12 @@ CREATE TABLE userInfo
     academy varchar(255) DEFAULT NULL ,
     grade integer DEFAULT NULL ,
     money integer DEFAULT NULL ,
-    credit integer DEFAULT NULL ,
-)
-CREATE UNIQUE INDEX table_name_id_uindex ON table_name (id);
-CREATE UNIQUE INDEX table_name_username_uindex ON table_name (username);
-CREATE UNIQUE INDEX table_name_nickname_uindex ON table_name (nickname);
-CREATE UNIQUE INDEX table_name_uuid_uindex ON table_name (uuid);
+    credit integer DEFAULT NULL 
+);
+CREATE UNIQUE INDEX table_name_id_uindex ON userinfo (id);
+CREATE UNIQUE INDEX table_name_username_uindex ON userinfo (username);
+CREATE UNIQUE INDEX table_name_nickname_uindex ON userinfo (nickname);
+CREATE UNIQUE INDEX table_name_uuid_uindex ON userinfo (uuid);
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 -- comment table
@@ -97,7 +97,7 @@ CREATE TABLE `user_group`
     group_id bigint(20)
 );
 CREATE UNIQUE INDEX user_group_id_uindex ON `user_group` (id);
-ALTER TABLE `user_group` COMMENT = '用户小组关联表'
+ALTER TABLE `user_group` COMMENT = '用户小组关联表';
 
 ---
 

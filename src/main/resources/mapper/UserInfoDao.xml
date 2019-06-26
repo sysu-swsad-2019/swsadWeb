@@ -26,6 +26,12 @@
 
     </select>
 
+    <select id="findById" resultType="com.swsadWeb.entity.UserInfo" parameterType="Long">
+
+        select * from userInfo where id = #{id}
+
+    </select>
+
     <!-- 添加用户 -->
     <insert id="insertUser" parameterType="com.swsadWeb.entity.UserInfo">
 
@@ -105,6 +111,29 @@
         SET credit = #{credit}
         WHERE username = #{username};
     </update>
+
+    <update id="updateUserInfo" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        <set>
+            <if test ='null != nickname'>nickname = #{nickname},</if>
+            <if test ='null != sex'>sex = #{sex},</if>
+            <if test ='null != phone'>phone = #{phone},</if>
+            <if test ='null != email'>email = #{email},</if>
+            <if test ='null != iconpath'>iconpath = #{iconpath},</if>
+            <if test ='null != university'>university = #{university},</if>
+            <if test ='null != academy'>academy = #{academy},</if>
+            <if test ='null != grade'>grade = #{grade},</if>
+            <if test ='null != money'>money = #{money},</if>
+            <if test ='null != credit'>credit = #{credit}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getUserInfoById" resultType="com.swsadWeb.entity.UserInfo" parameterType="Long">
+
+        SELECT username, nickname, sex, phone, email, iconPath FROM userInfo WHERE id = #{id}
+
+    </select>
 
 
 

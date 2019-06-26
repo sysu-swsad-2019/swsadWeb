@@ -1109,127 +1109,283 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="279" parent="5" name="comments">
+    <table id="279" parent="5" name="answer">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="280" parent="5" name="comments">
       <Comment>评论</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="280" parent="5" name="group">
+    <table id="281" parent="5" name="group">
       <Comment>小组</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="281" parent="5" name="sys_permissions">
+    <table id="282" parent="5" name="option">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="283" parent="5" name="paper">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="284" parent="5" name="question">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="285" parent="5" name="sys_permissions">
       <Engine>InnoDB</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="282" parent="5" name="sys_roles">
+    <table id="286" parent="5" name="sys_roles">
       <Engine>InnoDB</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="283" parent="5" name="sys_roles_permissions">
+    <table id="287" parent="5" name="sys_roles_permissions">
       <Engine>InnoDB</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="284" parent="5" name="sys_users">
+    <table id="288" parent="5" name="sys_users">
       <Engine>InnoDB</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="285" parent="5" name="sys_users_roles">
+    <table id="289" parent="5" name="sys_users_roles">
       <Engine>InnoDB</Engine>
       <Collation>utf8_general_ci</Collation>
     </table>
-    <table id="286" parent="5" name="target_limit">
+    <table id="290" parent="5" name="target_limit">
       <Comment>限制信息</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="287" parent="5" name="task">
+    <table id="291" parent="5" name="task">
       <Comment>任务</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="288" parent="5" name="userInfo">
+    <table id="292" parent="5" name="userInfo">
       <Comment>用户信息</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="289" parent="5" name="user_group">
+    <table id="293" parent="5" name="user_group">
       <Comment>用户小组关联表</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <table id="290" parent="5" name="user_task">
+    <table id="294" parent="5" name="user_task">
       <Comment>用户-任务关联</Comment>
       <Engine>InnoDB</Engine>
     </table>
-    <column id="291" parent="279" name="id">
+    <column id="295" parent="279" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="279" name="groupid">
+    <column id="296" parent="279" name="question_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="279" name="username">
+    <column id="297" parent="279" name="content_answer">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="279" name="comment_detail">
+    <index id="298" parent="279" name="answer_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="299" parent="279" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="300" parent="279" name="answer_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>answer_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="301" parent="280" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="280" name="groupid">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="303" parent="280" name="username">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="304" parent="280" name="comment_detail">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="279" name="comment_time">
+    <column id="305" parent="280" name="comment_time">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="296" parent="279" name="comments_id_uindex">
+    <index id="306" parent="280" name="comments_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="297" parent="279" name="PRIMARY">
+    <key id="307" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="298" parent="279" name="comments_id_uindex">
+    <key id="308" parent="280" name="comments_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>comments_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="299" parent="280" name="id">
+    <column id="309" parent="281" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="280" name="name">
+    <column id="310" parent="281" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="280" name="description">
+    <column id="311" parent="281" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="302" parent="280" name="group_id_uindex">
+    <column id="312" parent="281" name="creator">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="313" parent="281" name="group_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="303" parent="280" name="PRIMARY">
+    <key id="314" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="304" parent="280" name="group_id_uindex">
+    <key id="315" parent="281" name="group_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>group_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="305" parent="281" name="id">
+    <column id="316" parent="282" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="317" parent="282" name="question_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="318" parent="282" name="content_option">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="319" parent="282" name="num">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="320" parent="282" name="option_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="321" parent="282" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="322" parent="282" name="option_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>option_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="323" parent="283" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="324" parent="283" name="title">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="325" parent="283" name="release_user">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="326" parent="283" name="endtime">
+      <Position>4</Position>
+      <DataType>datetime|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="327" parent="283" name="paper_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="328" parent="283" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="329" parent="283" name="paper_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>paper_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="330" parent="284" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="331" parent="284" name="paper_id">
+      <Position>2</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="332" parent="284" name="content_question">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="333" parent="284" name="type">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="334" parent="284" name="question_id_uindex">
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="335" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="336" parent="284" name="question_id_uindex">
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>question_id_uindex</UnderlyingIndexName>
+    </key>
+    <column id="337" parent="285" name="id">
       <Position>1</Position>
       <Comment>编号</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1237,46 +1393,46 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="281" name="permission">
+    <column id="338" parent="285" name="permission">
       <Position>2</Position>
       <Comment>权限编号</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="281" name="description">
+    <column id="339" parent="285" name="description">
       <Position>3</Position>
       <Comment>权限描述</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="281" name="rid">
+    <column id="340" parent="285" name="rid">
       <Position>4</Position>
       <Comment>此权限关联角色的id</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="309" parent="281" name="available">
+    <column id="341" parent="285" name="available">
       <Position>5</Position>
       <Comment>是否锁定</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="310" parent="281" name="idx_sys_permissions_permission">
+    <index id="342" parent="285" name="idx_sys_permissions_permission">
       <ColNames>permission</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="311" parent="281" name="PRIMARY">
+    <key id="343" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="312" parent="281" name="idx_sys_permissions_permission">
+    <key id="344" parent="285" name="idx_sys_permissions_permission">
       <ColNames>permission</ColNames>
       <UnderlyingIndexName>idx_sys_permissions_permission</UnderlyingIndexName>
     </key>
-    <column id="313" parent="282" name="id">
+    <column id="345" parent="286" name="id">
       <Position>1</Position>
       <Comment>角色编号</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1284,46 +1440,46 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="282" name="role">
+    <column id="346" parent="286" name="role">
       <Position>2</Position>
       <Comment>角色名称</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="282" name="description">
+    <column id="347" parent="286" name="description">
       <Position>3</Position>
       <Comment>角色描述</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="282" name="pid">
+    <column id="348" parent="286" name="pid">
       <Position>4</Position>
       <Comment>父节点</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="282" name="available">
+    <column id="349" parent="286" name="available">
       <Position>5</Position>
       <Comment>是否锁定</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="318" parent="282" name="idx_sys_roles_role">
+    <index id="350" parent="286" name="idx_sys_roles_role">
       <ColNames>role</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="319" parent="282" name="PRIMARY">
+    <key id="351" parent="286" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="320" parent="282" name="idx_sys_roles_role">
+    <key id="352" parent="286" name="idx_sys_roles_role">
       <ColNames>role</ColNames>
       <UnderlyingIndexName>idx_sys_roles_role</UnderlyingIndexName>
     </key>
-    <column id="321" parent="283" name="id">
+    <column id="353" parent="287" name="id">
       <Position>1</Position>
       <Comment>编号</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1331,24 +1487,24 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="283" name="role_id">
+    <column id="354" parent="287" name="role_id">
       <Position>2</Position>
       <Comment>角色编号</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="283" name="permission_id">
+    <column id="355" parent="287" name="permission_id">
       <Position>3</Position>
       <Comment>权限编号</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="324" parent="283" name="PRIMARY">
+    <key id="356" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="325" parent="284" name="id">
+    <column id="357" parent="288" name="id">
       <Position>1</Position>
       <Comment>编号</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1356,52 +1512,52 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="284" name="username">
+    <column id="358" parent="288" name="username">
       <Position>2</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="327" parent="284" name="password">
+    <column id="359" parent="288" name="password">
       <Position>3</Position>
       <Comment>密码</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="284" name="salt">
+    <column id="360" parent="288" name="salt">
       <Position>4</Position>
       <Comment>盐值</Comment>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="284" name="role_id">
+    <column id="361" parent="288" name="role_id">
       <Position>5</Position>
       <Comment>角色列表</Comment>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="284" name="locked">
+    <column id="362" parent="288" name="locked">
       <Position>6</Position>
       <Comment>是否锁定</Comment>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="331" parent="284" name="idx_sys_users_username">
+    <index id="363" parent="288" name="idx_sys_users_username">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="332" parent="284" name="PRIMARY">
+    <key id="364" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="333" parent="284" name="idx_sys_users_username">
+    <key id="365" parent="288" name="idx_sys_users_username">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>idx_sys_users_username</UnderlyingIndexName>
     </key>
-    <column id="334" parent="285" name="id">
+    <column id="366" parent="289" name="id">
       <Position>1</Position>
       <Comment>编号</Comment>
       <DataType>bigint(20)|0s</DataType>
@@ -1409,324 +1565,333 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="285" name="user_id">
+    <column id="367" parent="289" name="user_id">
       <Position>2</Position>
       <Comment>用户编号</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="285" name="role_id">
+    <column id="368" parent="289" name="role_id">
       <Position>3</Position>
       <Comment>角色编号</Comment>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="337" parent="285" name="PRIMARY">
+    <key id="369" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="338" parent="286" name="id">
+    <column id="370" parent="290" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="286" name="sex">
+    <column id="371" parent="290" name="sex">
       <Position>2</Position>
       <DataType>tinyint(3)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="286" name="grade">
+    <column id="372" parent="290" name="grade">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="341" parent="286" name="credit_min">
+    <column id="373" parent="290" name="credit_min">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="286" name="group_id">
+    <column id="374" parent="290" name="group_id">
       <Position>5</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="343" parent="286" name="target_limit_id_uindex">
+    <index id="375" parent="290" name="target_limit_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="344" parent="286" name="PRIMARY">
+    <key id="376" parent="290" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="345" parent="286" name="target_limit_id_uindex">
+    <key id="377" parent="290" name="target_limit_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>target_limit_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="346" parent="287" name="id">
+    <column id="378" parent="291" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="287" name="taskname">
+    <column id="379" parent="291" name="taskname">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="287" name="starttime">
+    <column id="380" parent="291" name="starttime">
       <Position>3</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="287" name="endtime">
+    <column id="381" parent="291" name="endtime">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="287" name="state">
+    <column id="382" parent="291" name="state">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;-1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="287" name="type">
+    <column id="383" parent="291" name="type">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;-1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="287" name="release_user">
+    <column id="384" parent="291" name="release_user">
       <Position>7</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="353" parent="287" name="accept_num_limit">
+    <column id="385" parent="291" name="accept_num_limit">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;-1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="354" parent="287" name="has_target_limit">
+    <column id="386" parent="291" name="has_target_limit">
       <Position>9</Position>
       <DataType>tinyint(1)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="355" parent="287" name="target_limit_id">
+    <column id="387" parent="291" name="target_limit_id">
       <Position>10</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="356" parent="287" name="description">
+    <column id="388" parent="291" name="description">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="357" parent="287" name="sex">
+    <column id="389" parent="291" name="sex">
       <Position>12</Position>
       <DataType>tinyint(3)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="358" parent="287" name="grade">
+    <column id="390" parent="291" name="grade">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="359" parent="287" name="credit_min">
+    <column id="391" parent="291" name="credit_min">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="360" parent="287" name="group_id">
+    <column id="392" parent="291" name="group_id">
       <Position>15</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="361" parent="287" name="task_id_uindex">
+    <column id="393" parent="291" name="reward">
+      <Position>16</Position>
+      <DataType>int(11)|0s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="394" parent="291" name="task_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="287" name="PRIMARY">
+    <key id="395" parent="291" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="363" parent="287" name="task_id_uindex">
+    <key id="396" parent="291" name="task_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>task_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="364" parent="288" name="id">
+    <column id="397" parent="292" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="365" parent="288" name="uuid">
+    <column id="398" parent="292" name="uuid">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="366" parent="288" name="username">
+    <column id="399" parent="292" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="367" parent="288" name="password">
+    <column id="400" parent="292" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="368" parent="288" name="nickname">
+    <column id="401" parent="292" name="nickname">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="288" name="sex">
+    <column id="402" parent="292" name="sex">
       <Position>6</Position>
       <DataType>tinyint(3)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="288" name="phone">
+    <column id="403" parent="292" name="phone">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="288" name="email">
+    <column id="404" parent="292" name="email">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="288" name="iconPath">
+    <column id="405" parent="292" name="iconPath">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="373" parent="288" name="university">
+    <column id="406" parent="292" name="university">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="374" parent="288" name="academy">
+    <column id="407" parent="292" name="academy">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="288" name="grade">
+    <column id="408" parent="292" name="grade">
       <Position>12</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>&apos;-1&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="288" name="money">
+    <column id="409" parent="292" name="money">
       <Position>13</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="288" name="credit">
+    <column id="410" parent="292" name="credit">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="378" parent="288" name="table_name_id_uindex">
+    <index id="411" parent="292" name="table_name_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="379" parent="288" name="table_name_uuid_uindex">
+    <index id="412" parent="292" name="table_name_uuid_uindex">
       <ColNames>uuid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="380" parent="288" name="table_name_username_uindex">
+    <index id="413" parent="292" name="table_name_username_uindex">
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="381" parent="288" name="PRIMARY">
+    <key id="414" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="382" parent="288" name="table_name_id_uindex">
+    <key id="415" parent="292" name="table_name_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>table_name_id_uindex</UnderlyingIndexName>
     </key>
-    <key id="383" parent="288" name="table_name_uuid_uindex">
+    <key id="416" parent="292" name="table_name_uuid_uindex">
       <ColNames>uuid</ColNames>
       <UnderlyingIndexName>table_name_uuid_uindex</UnderlyingIndexName>
     </key>
-    <key id="384" parent="288" name="table_name_username_uindex">
+    <key id="417" parent="292" name="table_name_username_uindex">
       <ColNames>username</ColNames>
       <UnderlyingIndexName>table_name_username_uindex</UnderlyingIndexName>
     </key>
-    <column id="385" parent="289" name="id">
+    <column id="418" parent="293" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="289" name="user_id">
+    <column id="419" parent="293" name="user_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="289" name="group_id">
+    <column id="420" parent="293" name="group_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="388" parent="289" name="user_group_id_uindex">
+    <index id="421" parent="293" name="user_group_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="389" parent="289" name="PRIMARY">
+    <key id="422" parent="293" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="390" parent="289" name="user_group_id_uindex">
+    <key id="423" parent="293" name="user_group_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_group_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="391" parent="290" name="id">
+    <column id="424" parent="294" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="290" name="user_id">
+    <column id="425" parent="294" name="user_id">
       <Position>2</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="290" name="task_id">
+    <column id="426" parent="294" name="task_id">
       <Position>3</Position>
       <DataType>bigint(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="394" parent="290" name="user_task_id_uindex">
+    <index id="427" parent="294" name="user_task_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="395" parent="290" name="PRIMARY">
+    <key id="428" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="396" parent="290" name="user_task_id_uindex">
+    <key id="429" parent="294" name="user_task_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>user_task_id_uindex</UnderlyingIndexName>
     </key>

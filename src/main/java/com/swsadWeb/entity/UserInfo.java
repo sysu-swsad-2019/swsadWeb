@@ -75,6 +75,9 @@ public class UserInfo implements Serializable {
         this.username = this.uuid;
         this.nickname = this.uuid;
         this.sex = 0;
+        this.money = 0;
+        this.credit = 0;
+        this.grade = -1;
     }
 
     public UserInfo(String username, String password, String nickname, Integer sex, String phone, String email, String iconpath){

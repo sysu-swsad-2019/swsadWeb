@@ -107,6 +107,10 @@
         DELETE FROM sys_users_roles WHERE user_id = #{id}
     </delete>
 
+    <select id="doesUserIsInTask" parameterType="Long" resultType="com.swsadWeb.entity.UserTask">
+        SELECT * FROM user_task WHERE user_id = #{userId} AND task_id = #{taskId}
+    </select>
+
     <!-- 创建用户-Task关系 -->
     <insert id="correlationTask" parameterType="Long">
         INSERT INTO user_task(user_id, task_id) VALUES(#{userId}, #{taskId})
@@ -114,15 +118,19 @@
 
     <!-- 移除用户-Task之间的关系 -->
     <delete id="uncorrelationTask" parameterType="Long">
-        DELETE FROM sys_users_roles WHERE user_id = #{userId} AND role_id = #{roleId}
+        DELETE FROM user_task WHERE user_id = #{userId} AND task_id = #{taskId}
     </delete>
 
-    <!-- 创建用户-Task关系 -->
+    <select id="doesUserIsInGroup" parameterType="Long" resultType="com.swsadWeb.entity.UserGroup">
+        SELECT * FROM user_group WHERE user_id = #{userId} AND group_id = #{groupId}
+    </select>
+
+    <!-- 创建用户-Group关系 -->
     <insert id="correlationGroup" parameterType="Long">
         INSERT INTO user_group(user_id, group_id) VALUES(#{userId}, #{groupId})
     </insert>
 
-    <!-- 移除用户-Task之间的关系 -->
+    <!-- 移除用户-Group之间的关系 -->
     <delete id="uncorrelationGroup" parameterType="Long">
         DELETE FROM user_group WHERE user_id = #{userId} AND group_id = #{groupId}
     </delete>

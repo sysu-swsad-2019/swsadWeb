@@ -10,8 +10,8 @@
     <insert id="insertGroup" parameterType="com.swsadWeb.entity.Group">
 
 
-        INSERT INTO "group" (name, description)
-        VALUES (#{name}, #{description});
+        INSERT INTO "group" (name, description, creator)
+        VALUES (#{name}, #{description}, #{creator});
 
         <selectKey order="AFTER" resultType="Long" keyColumn="id" keyProperty="id">
             SELECT LAST_INSERT_ID()
@@ -38,6 +38,31 @@
     <select id="findById" parameterType="Long" resultType="com.swsadWeb.entity.Group">
         SELECT * FROM "group" WHERE id = #{id}
     </select>
+
+
+    <select id="findAllUserInGroup" parameterType="Long" resultType="com.swsadWeb.entity.User">
+        SELECT u.id, u.username
+        FROM user_group ug, sys_users u
+        WHERE
+        ug.group_id = #{groupId}
+        AND
+        u.id = ug.user_id
+    </select>
+
+    <select id="findAllGroupByUser" parameterType="Long" resultType="com.swsadWeb.entity.Group">
+        SELECT g.id, g.name
+        FROM user_group ug, "group" g
+        WHERE
+        ug.user_id = #{userId}
+        AND
+        ug.group_id = g.id
+    </select>
+
+    <select id="findAllGroup" resultType="com.swsadWeb.entity.Group">
+        SELECT * FROM "group"
+    </select>
+
+
 
 
 

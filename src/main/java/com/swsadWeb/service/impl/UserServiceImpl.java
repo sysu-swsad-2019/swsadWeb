@@ -1,9 +1,7 @@
 package com.swsadWeb.service.impl;
 
 import com.swsadWeb.dao.UserDao;
-import com.swsadWeb.entity.Permission;
-import com.swsadWeb.entity.Role;
-import com.swsadWeb.entity.User;
+import com.swsadWeb.entity.*;
 import com.swsadWeb.service.UserService;
 
 import org.springframework.aop.framework.AopContext;
@@ -191,6 +189,18 @@ public class UserServiceImpl implements UserService {
         userDao.uncorrelationGroup(userId, groupId);
     }
 
+    @Transactional
+    @Override
+    public UserTask doesUserIsInTask(Long userId, Long taskId){
+        return userDao.doesUserIsInTask(userId, taskId);
+    }
+
+
+    @Transactional
+    @Override
+    public UserGroup doesUserIsInGroup(Long userId, Long groupId){
+        return userDao.doesUserIsInGroup(userId, groupId);
+    }
 
 }
 

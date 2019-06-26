@@ -82,6 +82,8 @@ public class Task implements Serializable {
      */
     private Long groupId;
 
+    private Integer reward;
+
 
     public Task() {
     }
@@ -209,4 +211,11 @@ public class Task implements Serializable {
         this.groupId = groupId;
     }
 
+    public Integer getReward() {
+        return reward;
+    }
+
+    public void setReward(Integer reward) {
+        this.reward = reward;
+    }
 }

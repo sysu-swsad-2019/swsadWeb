@@ -24,6 +24,8 @@ public class Group implements Serializable {
      */
     private String description;
 
+    private Long creator;
+
 
     public Group() {
     }
@@ -52,4 +54,11 @@ public class Group implements Serializable {
         this.description = description;
     }
 
+    public Long getCreator() {
+        return creator;
+    }
+
+    public void setCreator(Long creator) {
+        this.creator = creator;
+    }
 }

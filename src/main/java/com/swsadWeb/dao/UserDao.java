@@ -1,8 +1,6 @@
 package com.swsadWeb.dao;
 
-import com.swsadWeb.entity.Permission;
-import com.swsadWeb.entity.Role;
-import com.swsadWeb.entity.User;
+import com.swsadWeb.entity.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -53,5 +51,13 @@ public interface UserDao {
 
     void uncorrelationGroup(@Param("userId") Long userId,
                            @Param("groupId") Long groupId);
+
+    UserTask doesUserIsInTask(@Param("userId") Long userId,
+                              @Param("groupId") Long taskId);
+
+    UserGroup doesUserIsInGroup(@Param("userId") Long userId,
+                                @Param("groupId") Long groupId);
+
+
 
 }

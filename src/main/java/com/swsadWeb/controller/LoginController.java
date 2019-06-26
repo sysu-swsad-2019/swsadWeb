@@ -177,9 +177,12 @@ public class LoginController {
         roleService.create(role2);
 
         User user = new User("admin", "123");
-        User user2 = new User("wjcoding", "123");
         userService.create(user);
-        userService.create(user2);
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername(user.getUsername());
+        userInfo.setPassword(user.getPassword());
+        userInfoService.insertUser(userInfo);
+        userService.correlationRoles(user.getId(), roleService.findByRole("admin").getId());
 
 
         return "yes";

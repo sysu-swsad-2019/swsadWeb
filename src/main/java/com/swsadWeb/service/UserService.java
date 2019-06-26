@@ -1,8 +1,6 @@
 package com.swsadWeb.service;
 
-import com.swsadWeb.entity.Permission;
-import com.swsadWeb.entity.Role;
-import com.swsadWeb.entity.User;
+import com.swsadWeb.entity.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -86,5 +84,10 @@ public interface UserService{
     List<User> findAll();
 
     User findById(Long id);
+
+
+    UserTask doesUserIsInTask(Long userId, Long taskId);
+
+    UserGroup doesUserIsInGroup(Long userId, Long groupId);
 
 }

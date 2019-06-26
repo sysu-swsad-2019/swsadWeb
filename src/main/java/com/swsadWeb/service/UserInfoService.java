@@ -34,7 +34,7 @@ public interface UserInfoService {
     /**
      * 更新
      */
-    Boolean updateUser(UserInfo userInfo);
+    void updateUserInfo(UserInfo userInfo);
 
     void updateNicknameByUsername(UserInfo userInfo);
     void updatePhoneByUsername(UserInfo userInfo);
@@ -54,6 +54,10 @@ public interface UserInfoService {
 
 
     UserInfo findByUsername(String username);
+
+    UserInfo findById(Long id);
+
+    UserInfo getUserInfoById(Long id);
 
     /**
      * 根據主鍵 id 查詢

@@ -428,10 +428,42 @@ public class UserInfoController {
         map.put("phone", userInfo.getPhone());
         map.put("email", userInfo.getEmail());
         map.put("iconpath", userInfo.getIconpath());
+        map.put("university", userInfo.getUniversity());
+        map.put("academy", userInfo.getAcademy());
+        map.put("grade", userInfo.getGrade()==null ? null : userInfo.getGrade().toString());
+        map.put("money", userInfo.getMoney()==null ? null : userInfo.getMoney().toString());
+        map.put("credit", userInfo.getCredit()==null ? null : userInfo.getCredit().toString());
+
 
         return map;
 
     }
+
+    @RequestMapping(value = "/setUserInfo")
+    @ResponseBody
+    public Msg setUserInfo(@RequestBody UserInfo userInfo){
+        Subject subject = SecurityUtils.getSubject();
+        UserInfo user = userInfoService.findByUsername(subject.getPrincipal().toString());
+        userInfo.setId(user.getId());
+
+        userInfoService.updateUserInfo(userInfo);
+
+        return Msg.success("修改成功");
+    }
+
+    @RequestMapping(value = "/getUserInfoById")
+    @ResponseBody
+    public Msg getUserInfoById(@RequestParam(value = "id") Long id){
+        UserInfo userInfo = userInfoService.getUserInfoById(id);
+        Map<String, Object> map = new HashMap<>();
+        map.put("userinfo", userInfo);
+        Msg msg = Msg.success("查找成功");
+        msg.setData(map);
+
+        return msg;
+    }
+
+
 
 
 

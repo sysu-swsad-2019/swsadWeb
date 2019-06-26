@@ -2,6 +2,7 @@ package com.swsadWeb.dao;
 
 
 import com.swsadWeb.entity.Group;
+import com.swsadWeb.entity.User;
 
 import java.util.List;
 
@@ -14,5 +15,8 @@ public interface GroupDao {
 
     Group findById(Long id);
 
+    List<User> findAllUserInGroup(Long groupId);
+
+    List<Group> findAllGroup();
 
 }

@@ -122,8 +122,8 @@ public class UserInfoServiceImpl implements UserInfoService {
      * 更新
      */
     @Override
-    public Boolean updateUser(UserInfo userInfo){
-        return true;
+    public void updateUserInfo(UserInfo userInfo){
+        userInfoDao.updateUserInfo(userInfo);
     }
 
     /**
@@ -161,6 +161,11 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
+    public UserInfo findById(Long id){
+        return userInfoDao.findById(id);
+    }
+
+    @Override
     public void updateUniversityByUsername(UserInfo userInfo) {
         userInfoDao.updateUniversityByUsername(userInfo);
     }
@@ -183,6 +188,12 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public void updateCreditByUsername(UserInfo userInfo) {
         userInfoDao.updateCreditByUsername(userInfo);
+    }
+
+
+    @Override
+    public UserInfo getUserInfoById(Long id){
+        return userInfoDao.getUserInfoById(id);
     }
 
 

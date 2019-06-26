@@ -171,4 +171,40 @@ ALTER TABLE task COMMENT = '任务';
 -- ALTER TABLE target_limit COMMENT = '限制信息';
 
 
+----
 
+CREATE TABLE paper
+(
+    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    title varchar(255),
+    release_user bigint(20),
+    endtime datetime
+);
+CREATE UNIQUE INDEX paper_id_uindex ON paper (id);
+
+
+CREATE TABLE question
+(
+    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    paper_id bigint(20),
+    content_question varchar(255),
+    type integer
+);
+CREATE UNIQUE INDEX question_id_uindex ON question (id);
+
+CREATE TABLE `option`
+(
+    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    question_id bigint(20),
+    content_option varchar(255),
+    num integer
+);
+CREATE UNIQUE INDEX option_id_uindex ON `option` (id);
+
+CREATE TABLE answer
+(
+    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    question_id bigint(20),
+    content_answer varchar(255)
+);
+CREATE UNIQUE INDEX answer_id_uindex ON answer (id);

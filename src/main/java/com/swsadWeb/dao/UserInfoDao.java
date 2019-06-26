@@ -35,6 +35,8 @@ public interface UserInfoDao {
     Boolean insertUserTest2();
 
 
+    UserInfo findById(Long id);
+
 
 
 
@@ -60,7 +62,10 @@ public interface UserInfoDao {
 
     Boolean delete(UserInfo userInfo);
 
-    Boolean update(UserInfo userInfo);
+    void updateUserInfo(UserInfo userInfo);
+
+    UserInfo getUserInfoById(Long id);
+
 
 
 

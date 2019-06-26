@@ -40,4 +40,18 @@ public interface UserDao {
 
     void deleteAllUserRoles(Long id);
 
+
+    void correlationTask(@Param("userId") Long userId,
+                         @Param("taskId") Long taskId);
+
+    void uncorrelationTask(@Param("userId") Long userId,
+                           @Param("taskId") Long taskId);
+
+
+    void correlationGroup(@Param("userId") Long userId,
+                         @Param("groupId") Long groupId);
+
+    void uncorrelationGroup(@Param("userId") Long userId,
+                           @Param("groupId") Long groupId);
+
 }

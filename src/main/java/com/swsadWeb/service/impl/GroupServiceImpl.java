@@ -30,4 +30,9 @@ public class GroupServiceImpl implements GroupService {
     public List<Group> findByName(String name) {
         return groupDao.findByName(name);
     }
+
+    @Override
+    public Group findById(Long id){
+        return groupDao.findById(id);
+    }
 }

@@ -54,11 +54,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/login")
     @ResponseBody
-    public Msg login(
-            @RequestParam(value = "username", required = false) String username,
-            @RequestParam(value = "password", required = false) String password,
-            @RequestParam(value = "remember", required = false) String remember,
-            Model model, HttpSession session) {
+    public Msg login(String username, String password, String remember, Model model, HttpSession session) {
 
 
         System.out.println(session.getId());
@@ -181,12 +177,9 @@ public class LoginController {
         roleService.create(role2);
 
         User user = new User("admin", "123");
-        User user2 = new User("tycoding", "123");
-        User user3 = new User("涂陌", "123");
+        User user2 = new User("wjcoding", "123");
         userService.create(user);
         userService.create(user2);
-        userService.create(user3);
-
 
 
         return "yes";

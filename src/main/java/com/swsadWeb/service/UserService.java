@@ -3,6 +3,7 @@ package com.swsadWeb.service;
 import com.swsadWeb.entity.Permission;
 import com.swsadWeb.entity.Role;
 import com.swsadWeb.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -27,6 +28,16 @@ public interface UserService{
      * @param roleIds
      */
     void uncorrelationRoles(Long userId, Long... roleIds);
+
+
+    void correlationTask(Long userId, Long taskId);
+
+    void uncorrelationTask(Long userId, Long taskId);
+
+
+    void correlationGroup(Long userId, Long groupId);
+
+    void uncorrelationGroup(Long userId, Long groupId);
 
     /**
      * 根据用户名查找其他角色

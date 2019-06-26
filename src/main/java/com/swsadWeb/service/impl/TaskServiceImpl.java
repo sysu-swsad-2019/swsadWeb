@@ -6,6 +6,8 @@ import com.swsadWeb.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class TaskServiceImpl implements TaskService {
@@ -21,5 +23,15 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public void updateByTaskId(Task task){
         taskDao.updateByTaskId(task);
+    }
+
+    @Override
+    public List<Long> getAllTaskId() {
+        return taskDao.getAllTaskId();
+    }
+
+    @Override
+    public Task getTaskById(Long id) {
+        return taskDao.getTaskById(id);
     }
 }

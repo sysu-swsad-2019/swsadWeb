@@ -35,6 +35,10 @@
         SELECT * FROM "group" WHERE name = #{name}
     </select>
 
+    <select id="findById" parameterType="Long" resultType="com.swsadWeb.entity.Group">
+        SELECT * FROM "group" WHERE id = #{id}
+    </select>
+
 
 
 </mapper>

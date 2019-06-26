@@ -12,5 +12,7 @@ public interface GroupDao {
 
     List<Group> findByName(String name);
 
+    Group findById(Long id);
+
 
 }

@@ -60,6 +60,29 @@ public class Task implements Serializable {
     private String description;
 
 
+
+    //target limit
+    /**
+     * sex
+     */
+    private Integer sex;
+
+    /**
+     * grade
+     */
+    private Integer grade;
+
+    /**
+     * creditmin
+     */
+    private Integer creditMin;
+
+    /**
+     * group_id
+     */
+    private Long groupId;
+
+
     public Task() {
     }
 
@@ -149,6 +172,41 @@ public class Task implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    //target limit
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+
+    public Integer getCreditMin() {
+        return creditMin;
+    }
+
+    public void setCreditMin(Integer creditMin) {
+        this.creditMin = creditMin;
+    }
+
+    public Long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
 }

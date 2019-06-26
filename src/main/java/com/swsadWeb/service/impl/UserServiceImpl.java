@@ -164,5 +164,33 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    @Transactional
+    @Override
+    public void correlationTask(Long userId, Long taskId){
+
+        userDao.correlationTask(userId, taskId);
+    }
+
+    @Transactional
+    @Override
+    public void uncorrelationTask(Long userId, Long taskId){
+        userDao.uncorrelationTask(userId, taskId);
+    }
+
+
+    @Transactional
+    @Override
+    public void correlationGroup(Long userId, Long groupId){
+        userDao.correlationGroup(userId, groupId);
+    }
+
+
+    @Transactional
+    @Override
+    public void uncorrelationGroup(Long userId, Long groupId){
+        userDao.uncorrelationGroup(userId, groupId);
+    }
+
+
 }
 

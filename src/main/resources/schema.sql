@@ -137,34 +137,38 @@ CREATE TABLE task
     release_user bigint(20),
     accept_num_limit integer DEFAULT -1,
     has_target_limit tinyint(1) DEFAULT 0,
-    description varchar(255)
+    description varchar(255),
+    sex tinyint(3),
+    grade integer,
+    creditMin integer,
+    group_id bigint(20)
 );
 CREATE UNIQUE INDEX task_id_uindex ON task (id);
 ALTER TABLE task COMMENT = '任务';
 
 ---
 
-CREATE TABLE task_limit
-(
-    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    task_id bigint(20),
-    limit_id bigint(20)
-);
-CREATE UNIQUE INDEX task_limit_id_uindex ON task_limit (id);
-ALTER TABLE task_limit COMMENT = '任务-限制关联';
+-- CREATE TABLE task_limit
+-- (
+--     id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     task_id bigint(20),
+--     limit_id bigint(20)
+-- );
+-- CREATE UNIQUE INDEX task_limit_id_uindex ON task_limit (id);
+-- ALTER TABLE task_limit COMMENT = '任务-限制关联';
 
 ---
 
-CREATE TABLE target_limit
-(
-    id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    sex tinyint(3),
-    grade integer,
-    creditMin integer,
-    group_id bigint(20)
-);
-CREATE UNIQUE INDEX target_limit_id_uindex ON target_limit (id);
-ALTER TABLE target_limit COMMENT = '限制信息';
+-- CREATE TABLE target_limit
+-- (
+--     id bigint(20) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+--     sex tinyint(3),
+--     grade integer,
+--     creditMin integer,
+--     group_id bigint(20)
+-- );
+-- CREATE UNIQUE INDEX target_limit_id_uindex ON target_limit (id);
+-- ALTER TABLE target_limit COMMENT = '限制信息';
 
 
 

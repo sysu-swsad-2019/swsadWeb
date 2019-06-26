@@ -12,5 +12,7 @@ public interface GroupService {
     void updateByGroupId(Group group);
 
     List<Group> findByName(String name);
+
+    Group findById(Long id);
 }
 

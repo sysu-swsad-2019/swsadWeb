@@ -69,21 +69,12 @@ CREATE TABLE userInfo
     academy varchar(255) DEFAULT NULL ,
     grade integer DEFAULT NULL ,
     money integer DEFAULT NULL ,
-<<<<<<< HEAD
     credit integer DEFAULT NULL
 )
-CREATE UNIQUE INDEX table_name_id_uindex ON table_name (id);
-CREATE UNIQUE INDEX table_name_username_uindex ON table_name (username);
-CREATE UNIQUE INDEX table_name_nickname_uindex ON table_name (nickname);
-CREATE UNIQUE INDEX table_name_uuid_uindex ON table_name (uuid);
-=======
-    credit integer DEFAULT NULL 
-);
-CREATE UNIQUE INDEX table_name_id_uindex ON userinfo (id);
-CREATE UNIQUE INDEX table_name_username_uindex ON userinfo (username);
-CREATE UNIQUE INDEX table_name_nickname_uindex ON userinfo (nickname);
-CREATE UNIQUE INDEX table_name_uuid_uindex ON userinfo (uuid);
->>>>>>> f76fa62e9fbec5dce68357c8c8258e1faedc2e30
+CREATE UNIQUE INDEX userInfo_id_uindex ON userInfo (id);
+CREATE UNIQUE INDEX userInfo_username_uindex ON userInfo (username);
+CREATE UNIQUE INDEX userInfo_nickname_uindex ON userInfo (nickname);
+CREATE UNIQUE INDEX userInfo_uuid_uindex ON userInfo (uuid);
 ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
 -- comment table

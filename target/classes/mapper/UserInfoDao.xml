@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	namespace 属性一般情况下。
+	定义规则：一种是使用对应的javaBean的全类名, 一种是使用Mapper接口的全类名
+ -->
+<mapper namespace="com.swsadWeb.dao.UserInfoDao">
+    <!-- 目的：为DAO接口方法提供sql语句配置 -->
+    <!-- 查询用户和密码进行登录 -->
+    <select id="findByUsername" resultType="com.swsadWeb.entity.UserInfo" parameterType="String">
+
+        select * from userInfo where username = #{username}
+
+    </select>
+
+    <!--增加用户名和密码进行注册  -->
+    <insert id="registerByUsernameAndPassword">
+         insert into userInfo (id,username,password)
+        values (#{username},#{password})
+    </insert>
+
+    <select id="findIconByUsername" resultType="String" parameterType="String">
+
+        select iconPath from userInfo where username = #{username}
+
+    </select>
+
+    <select id="findById" resultType="com.swsadWeb.entity.UserInfo" parameterType="Long">
+
+        select * from userInfo where id = #{id}
+
+    </select>
+
+    <!-- 添加用户 -->
+    <insert id="insertUser" parameterType="com.swsadWeb.entity.UserInfo">
+
+
+        INSERT INTO userInfo (uuid,username,password,nickname,sex,phone,email,iconPath,university,academy,grade,money,credit)
+        VALUES (#{uuid},#{username},#{password},#{nickname},#{sex},#{phone},#{email},#{iconpath},#{university},#{academy},#{grade},#{money},#{credit});
+
+        <selectKey order="AFTER" resultType="Long" keyColumn="id" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <insert id="insertUserTest1">
+
+        INSERT INTO userInfo (uuid, username, password, nickname, sex, phone, email, iconPath) VALUES ('111', '1111', '123', '111', DEFAULT, '111', '1111', 'NULL')
+
+    </insert>
+
+    <insert id="insertUserTest2">
+
+        INSERT INTO userInfo (uuid, username, password, nickname, sex, phone, email, iconPath) VALUES ('444', '4444', '555', '444', DEFAULT, '111', '1111', 'NULL')
+
+    </insert>
+
+    <update id="updateNicknameByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET nickname = #{nickname}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updatePhoneByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET phone = #{phone}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updateEmailByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET email = #{email}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updateSexByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET sex = #{sex}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updateIconPathByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET iconPath = #{iconpath}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updateUniversityByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET university = #{university}
+        WHERE username = #{username};
+    </update>
+    <update id="updateAcademyByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET academy = #{academy}
+        WHERE username = #{username};
+    </update>
+    <update id="updateGradeByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET grade = #{grade}
+        WHERE username = #{username};
+    </update>
+    <update id="updateMoneyByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET money = #{money}
+        WHERE username = #{username};
+    </update>
+    <update id="updateCreditByUsername" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        SET credit = #{credit}
+        WHERE username = #{username};
+    </update>
+
+    <update id="updateUserInfo" parameterType="com.swsadWeb.entity.UserInfo">
+        UPDATE userInfo
+        <set>
+            <if test ='null != nickname'>nickname = #{nickname},</if>
+            <if test ='null != sex'>sex = #{sex},</if>
+            <if test ='null != phone'>phone = #{phone},</if>
+            <if test ='null != email'>email = #{email},</if>
+            <if test ='null != iconpath'>iconpath = #{iconpath},</if>
+            <if test ='null != university'>university = #{university},</if>
+            <if test ='null != academy'>academy = #{academy},</if>
+            <if test ='null != grade'>grade = #{grade},</if>
+            <if test ='null != money'>money = #{money},</if>
+            <if test ='null != credit'>credit = #{credit}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <select id="getUserInfoById" resultType="com.swsadWeb.entity.UserInfo" parameterType="Long">
+
+        SELECT username, nickname, sex, phone, email, iconPath FROM userInfo WHERE id = #{id}
+
+    </select>
+
+
+
+
+</mapper>
+

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="swsadWeb">
+    <output-path>$PROJECT_DIR$/out/artifacts/swsadWeb</output-path>
+    <root id="archive" name="swsadWeb.war">
+      <element id="artifact" artifact-name="swsadWeb:war exploded" />
+    </root>
+  </artifact>
+</component>

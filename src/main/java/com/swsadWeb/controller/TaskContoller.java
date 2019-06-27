@@ -128,7 +128,7 @@ public class TaskContoller {
 
     @RequestMapping(value = "/finishTask")
     @ResponseBody
-    public Msg deleteUserInTask(@RequestParam(value = "userId") Long userId,
+    public Msg finishTask(@RequestParam(value = "userId") Long userId,
                                 @RequestParam(value = "taskId") Long taskId) {
 
         Subject subject = SecurityUtils.getSubject();

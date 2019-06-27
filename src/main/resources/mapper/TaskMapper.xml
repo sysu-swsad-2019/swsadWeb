@@ -65,7 +65,7 @@
     </select>
 
     <select id="getTaskByUser" parameterType="Long" resultType="com.swsadWeb.entity.Task">
-        SELECT t.id, t.taskname
+        SELECT t.*
         FROM user_task ut, task t
         WHERE
         ut.user_id = #{userId}
@@ -83,7 +83,7 @@
     </select>
 
     <select id="getReleaseTaskByUser" parameterType="Long" resultType="com.swsadWeb.entity.Task">
-        SELECT id, taskname
+        SELECT *
         FROM task
         WHERE
         release_user = #{userId}

@@ -22,10 +22,19 @@
         UPDATE `group`
         <set>
             <if test="name != null">
-                name = #{name},
+                `name` = #{name},
             </if>
             <if test="description != null">
                 description = #{description},
+            </if>
+            <if test="memberNum != null">
+                member_num = #{memberNum},
+            </if>
+            <if test="taskNum != null">
+                task_num = #{taskNum},
+            </if>
+            <if test="iconpath != null">
+                iconPath = #{iconpath},
             </if>
         </set>
         WHERE id = #{id};
@@ -61,6 +70,12 @@
     <select id="findAllGroup" resultType="com.swsadWeb.entity.Group">
         SELECT * FROM `group`
     </select>
+
+
+    <select id="findAllTaskInGroup" resultType="com.swsadWeb.entity.Task">
+        SELECT * FROM task WHERE group_id = #{groupId}
+    </select>
+
 
 
 

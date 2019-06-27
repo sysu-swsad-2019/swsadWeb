@@ -211,7 +211,7 @@ public class LoginController {
             userInfo.setNickname(userInfo.getUuid());
             userInfo.setSex(0);
             userInfo.setMoney(0);
-            userInfo.setCredit(0);
+            userInfo.setCredit(100);
             userInfo.setGrade(-1);
 
 

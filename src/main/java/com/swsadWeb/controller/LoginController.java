@@ -6,6 +6,7 @@ import com.swsadWeb.service.RoleService;
 import com.swsadWeb.service.UserInfoService;
 import com.swsadWeb.service.UserService;
 import com.sun.deploy.net.HttpResponse;
+import com.swsadWeb.util.UUIDUtil;
 import net.sf.ehcache.Cache;
 import org.apache.ibatis.jdbc.Null;
 import org.apache.shiro.SecurityUtils;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpSession;
 import java.net.HttpCookie;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * @auther wangjing
@@ -199,8 +201,18 @@ public class LoginController {
         }else {
             userService.create(tuser);
             UserInfo userInfo = new UserInfo();
+            userInfo.setUuid(UUIDUtil.getUUID());
+            userInfo.setUsername(userInfo.getUuid());
+            userInfo.setNickname(userInfo.getUuid());
+            userInfo.setSex(0);
+            userInfo.setMoney(0);
+            userInfo.setCredit(0);
+            userInfo.setGrade(-1);
+
+
             userInfo.setUsername(tuser.getUsername());
             userInfo.setPassword(tuser.getPassword());
+
             userInfoService.insertUser(userInfo);
 
             System.out.println("new user in sys_user table id is: "+ tuser.getId());

@@ -102,7 +102,7 @@ public class GroupController {
 
         User user = userService.findByName(username);
 
-        if (userService.doesUserIsInGroup(user.getId(), groupId)!=null){
+        if (userService.doesUserIsInGroup(userId, groupId)!=null){
             return Msg.error("已经加入");
         }
 
@@ -110,7 +110,7 @@ public class GroupController {
             return Msg.error("你不是管理员");
         }
 
-        userService.correlationGroup(user.getId(), groupId);
+        userService.correlationGroup(userId, groupId);
 
 
         return Msg.success("添加成功");
@@ -155,7 +155,7 @@ public class GroupController {
 
         User user = userService.findByName(username);
 
-        if (userService.doesUserIsInGroup(user.getId(), groupId)==null){
+        if (userService.doesUserIsInGroup(userId, groupId)==null){
             return Msg.error("尚未加入");
         }
 
@@ -163,7 +163,7 @@ public class GroupController {
             return Msg.error("你不是管理员");
         }
 
-        userService.uncorrelationGroup(user.getId(), groupId);
+        userService.uncorrelationGroup(userId, groupId);
 
 
         return Msg.success("删除成功");

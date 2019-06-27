@@ -38,10 +38,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/userinfo")
-@CrossOrigin
+//@CrossOrigin
 //这里用了@SessionAttributes，可以直接把model中的user(也就key)放入其中
 //这样保证了session中存在user这个对象
-@SessionAttributes("user")
+//@SessionAttributes("user")
 public class UserInfoController {
 
     private static final Log logger = LogFactory.getLog(UserInfoController.class);

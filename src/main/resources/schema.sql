@@ -69,7 +69,7 @@ CREATE TABLE userInfo
     academy varchar(255) DEFAULT NULL ,
     grade integer DEFAULT NULL ,
     money integer DEFAULT NULL ,
-    credit integer DEFAULT NULL ,
+    credit integer DEFAULT NULL
 )
 CREATE UNIQUE INDEX table_name_id_uindex ON table_name (id);
 CREATE UNIQUE INDEX table_name_username_uindex ON table_name (username);
@@ -141,7 +141,8 @@ CREATE TABLE task
     sex tinyint(3),
     grade integer,
     creditMin integer,
-    group_id bigint(20)
+    group_id bigint(20),
+    reward integer
 );
 CREATE UNIQUE INDEX task_id_uindex ON task (id);
 ALTER TABLE task COMMENT = '任务';

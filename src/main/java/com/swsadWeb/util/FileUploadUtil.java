@@ -18,7 +18,9 @@ public class FileUploadUtil {
     private static Log log = LogFactory.getLog(FileUploadUtil.class);
 
     private static String imgPath = "/Users/wangjing/Desktop/swsadPicture";
+    //private static String imgPath = "C:/Users/Administrator/Desktop/image";
 
+    //private static String imgURL = "image";
     private static String imgURL = "swsadPicture";
 
     private static String iconFileName = "icon";

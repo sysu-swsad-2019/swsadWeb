@@ -258,7 +258,7 @@ public class UserInfoController {
      * @return
      */
     @RequiresRoles(value={"admin","user"}, logical = Logical.OR)
-    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)//, produces = "application/json;charset=UTF-8"
     @ResponseBody
     public Msg uploadFile(Model model,HttpServletRequest request, HttpSession session) {
 
@@ -296,7 +296,7 @@ public class UserInfoController {
 
 
     @RequiresRoles(value={"admin","user"}, logical = Logical.OR)
-    @RequestMapping(value = "/setUserIcon", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = "/setUserIcon", method = RequestMethod.POST)
     @ResponseBody
     public Msg setUserIcon(Model model,HttpServletRequest request, HttpSession session) {
 

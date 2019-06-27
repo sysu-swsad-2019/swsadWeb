@@ -26,6 +26,12 @@ public class Group implements Serializable {
 
     private Long creator;
 
+    private Integer taskNum;
+
+    private Integer memberNum;
+
+    private String iconpath;
+
 
     public Group() {
     }
@@ -60,5 +66,30 @@ public class Group implements Serializable {
 
     public void setCreator(Long creator) {
         this.creator = creator;
+    }
+
+    public Integer getMemberNum() {
+        return memberNum;
+    }
+
+    public Integer getTaskNum() {
+        return taskNum;
+    }
+
+    public void setMemberNum(Integer memberNum) {
+        this.memberNum = memberNum;
+    }
+
+    public void setTaskNum(Integer taskNum) {
+        this.taskNum = taskNum;
+    }
+
+
+    public String getIconpath() {
+        return iconpath;
+    }
+
+    public void setIconpath(String iconpath) {
+        this.iconpath = iconpath;
     }
 }

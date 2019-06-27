@@ -77,7 +77,7 @@ public class TaskContoller {
             return Msg.error("不能接收自己发布的任务");
         }
 
-        if (userService.doesUserIsInGroup(userInfo.getId(), taskId)!=null){
+        if (userService.doesUserIsInTask(userInfo.getId(), taskId)!=null){
             return Msg.error("已经加入");
         }
 
@@ -116,7 +116,7 @@ public class TaskContoller {
 
         User user = userService.findByName(username);
 
-        if (userService.doesUserIsInGroup(user.getId(), taskId)==null){
+        if (userService.doesUserIsInTask(user.getId(), taskId)==null){
             return Msg.error("尚未加入");
         }
 
@@ -142,6 +142,9 @@ public class TaskContoller {
 
         Task task = taskService.getTaskById(taskId);
 
+        if (userService.doesUserIsInTask(finishUser.getId(), taskId)==null){
+            return Msg.error("尚未加入");
+        }
         if (task.getReward() > userInfo.getMoney()){
             return Msg.error("钱不够");
         }

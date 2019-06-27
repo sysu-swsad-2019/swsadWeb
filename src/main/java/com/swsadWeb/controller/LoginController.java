@@ -99,19 +99,24 @@ public class LoginController {
 //                return ppp;
             } catch (UnknownAccountException e) {
                 e.printStackTrace();
-                error = "用户账户不存在，错误信息：" + e.getMessage();
+                //error = "用户账户不存在，错误信息：" + e.getMessage();
+                error = "用户账户不存在";
             } catch (IncorrectCredentialsException e) {
                 e.printStackTrace();
-                error = "用户名或密码错误，错误信息：" + e.getMessage();
+                error = "用户名或密码错误";
+                //error = "用户名或密码错误，错误信息：" + e.getMessage();
             } catch (LockedAccountException e) {
                 e.printStackTrace();
-                error = "该账号已锁定，错误信息：" + e.getMessage();
+                //error = "该账号已锁定，错误信息：" + e.getMessage();
+                error = "该账号已锁定";
             } catch (DisabledAccountException e) {
                 e.printStackTrace();
-                error = "该账号已禁用，错误信息：" + e.getMessage();
+                //error = "该账号已禁用，错误信息：" + e.getMessage();
+                error = "该账号已禁用";
             } catch (ExcessiveAttemptsException e) {
                 e.printStackTrace();
-                error = "该账号登录失败次数过多，错误信息：" + e.getMessage();
+                //error = "该账号登录失败次数过多，错误信息：" + e.getMessage();
+                error = "该账号登录失败次数过多";
             } catch (Exception e){
                 e.printStackTrace();
                 error = "未知错误，错误信息：" + e.getMessage();
@@ -121,7 +126,7 @@ public class LoginController {
         }
         //登录失败，跳转到login页面
 
-        model.addAttribute("error", error);
+        //model.addAttribute("error", error);
 //        Map<String, String> ttt = new HashMap<>();
 //        ttt.put("sid", SecurityUtils.getSubject().getSession().getId().toString());
         //ttt.put("rememberMe", SecurityUtils.getSubject().getSession().getAttribute("rememberMe").toString());

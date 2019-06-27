@@ -53,7 +53,7 @@ public interface UserDao {
                            @Param("groupId") Long groupId);
 
     UserTask doesUserIsInTask(@Param("userId") Long userId,
-                              @Param("groupId") Long taskId);
+                              @Param("taskId") Long taskId);
 
     UserGroup doesUserIsInGroup(@Param("userId") Long userId,
                                 @Param("groupId") Long groupId);

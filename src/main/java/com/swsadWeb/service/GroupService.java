@@ -1,6 +1,7 @@
 package com.swsadWeb.service;
 
 import com.swsadWeb.entity.Group;
+import com.swsadWeb.entity.Task;
 import com.swsadWeb.entity.User;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,7 @@ public interface GroupService {
     List<User> findAllUserInGroup(Long groupId);
 
     List<Group> findAllGroup();
+
+    List<Task> findAllTaskInGroup(Long groupId);
 }
 

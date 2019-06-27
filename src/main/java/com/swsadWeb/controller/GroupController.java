@@ -1,21 +1,24 @@
 package com.swsadWeb.controller;
 
 
-import com.swsadWeb.entity.Group;
-import com.swsadWeb.entity.Msg;
-import com.swsadWeb.entity.User;
+import com.swsadWeb.entity.*;
 import com.swsadWeb.service.GroupService;
 import com.swsadWeb.service.UserInfoService;
 import com.swsadWeb.service.UserService;
+import com.swsadWeb.util.FileUploadUtil;
+import org.apache.ibatis.logging.Log;
+import org.apache.ibatis.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +27,7 @@ import java.util.Map;
 @RequestMapping("/group")
 public class GroupController {
 
+    private static final Log logger = LogFactory.getLog(UserInfoController.class);
 
     @Autowired
     private GroupService groupService;
@@ -182,6 +186,18 @@ public class GroupController {
         return msg;
     }
 
+    @RequestMapping(value = "/findAllTaskInGroup")
+    @ResponseBody
+    public Msg findAllTaskInGroup(@RequestParam(value = "groupId")Long groupId) {
+        List<Task> list = groupService.findAllTaskInGroup(groupId);
+        Map<String, Object> map = new HashMap<>();
+        map.put("list", list);
+
+        Msg msg = Msg.success("返回成功");
+        msg.setData(map);
+        return msg;
+    }
+
 
 
     @RequestMapping(value = "/findAllGroup")
@@ -193,6 +209,48 @@ public class GroupController {
         Msg msg = Msg.success("查找成功");
         msg.setData(map);
         return msg;
+    }
+
+    @RequiresRoles(value={"admin","user"}, logical = Logical.OR)
+    @RequestMapping(value = "/setGroupIcon", method = RequestMethod.POST)
+    @ResponseBody
+    public Msg setGroupIcon(@RequestParam(value = "groupId")Long groupId,HttpServletRequest request) {
+
+        Group group = groupService.findById(groupId);
+
+        // 创建list集合用于获取文件上传返回路径名
+
+        String iconPath = "";
+        try {
+
+            // 获取上传完文件返回的路径,判断module模块名称是否为空，如果为空则给default作为文件夹名
+            iconPath = FileUploadUtil.uploadGroupIcon(request, groupId);
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            logger.error("上传文件发生错误=》》" + e.getMessage());
+
+        }
+
+        group.setIconpath(iconPath);
+
+        groupService.updateByGroupId(group);
+
+        // 转发到uploadTest.jsp页面
+        // 返回存有路径的List
+        Msg msg = Msg.success("上传成功");
+        Map<String, Object> map = new HashMap<>();
+        map.put("iconURL", iconPath);
+        msg.setData(map);
+        return msg;
+    }
+
+    @RequestMapping(value = "/updateGroupById")
+    @ResponseBody
+    public Msg updateGroupById(@RequestBody Group group){
+        groupService.updateByGroupId(group);
+        return Msg.success("设置成功");
     }
 
 

@@ -409,7 +409,7 @@ public class UserInfoController {
     }
 
     @RequiresRoles(value={"admin","user"}, logical = Logical.OR)
-    @RequestMapping(value = "getUserInfo", method = RequestMethod.POST)
+    @RequestMapping(value = "/getUserInfo", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> getUserInfo(){
 
@@ -421,6 +421,7 @@ public class UserInfoController {
 
         Map<String, String> map = new HashMap<>();
 
+        map.put("id", userInfo.getId().toString());
         map.put("uuid", userInfo.getUuid());
         map.put("username", userInfo.getUsername());
         map.put("nickname", userInfo.getNickname());
@@ -453,14 +454,28 @@ public class UserInfoController {
 
     @RequestMapping(value = "/getUserInfoById")
     @ResponseBody
-    public Msg getUserInfoById(@RequestParam(value = "id") Long id){
-        UserInfo userInfo = userInfoService.getUserInfoById(id);
-        Map<String, Object> map = new HashMap<>();
-        map.put("userinfo", userInfo);
-        Msg msg = Msg.success("查找成功");
-        msg.setData(map);
+    public Map<String, String> getUserInfoById(@RequestParam(value = "userId") Long userId){
+        UserInfo userInfo = userInfoService.getUserInfoById(userId);
+        Map<String, String> map = new HashMap<>();
+        map.put("id", userInfo.getId().toString());
+        map.put("uuid", userInfo.getUuid());
+        map.put("username", userInfo.getUsername());
+        map.put("nickname", userInfo.getNickname());
+        map.put("sex", userInfo.getSex().toString());
+        map.put("phone", userInfo.getPhone());
+        map.put("email", userInfo.getEmail());
+        map.put("iconpath", userInfo.getIconpath());
+        map.put("university", userInfo.getUniversity());
+        map.put("academy", userInfo.getAcademy());
+        map.put("grade", userInfo.getGrade()==null ? null : userInfo.getGrade().toString());
+        map.put("money", userInfo.getMoney()==null ? null : userInfo.getMoney().toString());
+        map.put("credit", userInfo.getCredit()==null ? null : userInfo.getCredit().toString());
 
-        return msg;
+        //map.put("userinfo", userInfo);
+        //Msg msg = Msg.success("查找成功");
+        //msg.setData(map);
+
+        return map;
     }
 
 

@@ -6,12 +6,14 @@ import com.swsadWeb.service.GroupService;
 import com.swsadWeb.service.UserInfoService;
 import com.swsadWeb.service.UserService;
 import com.swsadWeb.util.FileUploadUtil;
+import javafx.scene.chart.ValueAxis;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.Logical;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
+import org.quartz.impl.jdbcjobstore.MSSQLDelegate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,14 +50,21 @@ public class GroupController {
 
         groupService.insertGroup(group);
 
-        return Msg.success("添加成功");
+        userService.correlationGroup(user.getId(), group.getId());
+        Map<String, Object> map = new HashMap<>();
+        map.put("groupId", group.getId());
+
+        Msg msg = Msg.success("添加成功");
+        msg.setData(map);
+
+        return msg;
     }
 
     @RequestMapping(value = "/findById")
     @ResponseBody
-    public Msg getGroupById(@RequestParam Long id) {
+    public Msg findById(@RequestParam(value = "groupId") Long groupId) {
 
-        Group group = groupService.findById(id);
+        Group group = groupService.findById(groupId);
 
         Map<String, Object> map = new HashMap<>();
 
@@ -177,7 +186,7 @@ public class GroupController {
     @RequestMapping(value = "/findAllUserInGroup")
     @ResponseBody
     public Msg findAllUserInGroup(@RequestParam(value = "groupId")Long groupId) {
-        List<User> list = groupService.findAllUserInGroup(groupId);
+        List<UserInfo> list = groupService.findAllUserInGroup(groupId);
         Map<String, Object> map = new HashMap<>();
         map.put("list", list);
 
@@ -251,6 +260,17 @@ public class GroupController {
     public Msg updateGroupById(@RequestBody Group group){
         groupService.updateByGroupId(group);
         return Msg.success("设置成功");
+    }
+
+    @RequestMapping(value = "/findAllGroupByUser")
+    @ResponseBody
+    public Msg findAllGroupByUser(@RequestParam(value = "userId")Long userId){
+        List<Group> list = groupService.findAllGroupByUser(userId);
+        Map<String, Object> map = new HashMap<>();
+        map.put("list", list);
+        Msg msg = Msg.success("查找成功");
+        msg.setData(map);
+        return msg;
     }
 
 

@@ -209,7 +209,7 @@ public class LoginController {
             userInfo.setUuid(UUIDUtil.getUUID());
             userInfo.setUsername(userInfo.getUuid());
             userInfo.setNickname(userInfo.getUuid());
-            userInfo.setSex(0);
+            userInfo.setSex(-1);
             userInfo.setMoney(0);
             userInfo.setCredit(100);
             userInfo.setGrade(-1);

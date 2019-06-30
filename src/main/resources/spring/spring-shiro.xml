@@ -139,7 +139,6 @@
         <!-- 自定义的过滤器链，从上向下执行，一般将`/**`放到最下面 -->
         <property name="filterChainDefinitions">
             <value>
-
                 <!-- 静态资源不拦截 -->
                 /static/** = anon
                 /lib/** = anon
@@ -156,16 +155,11 @@
                 /regist.do = anon
                 /regist = anon
 
-                /testsid = anon
-                /testsid.jsp = anon
-                /testsid.do = anon
 
                 /initial = anon
 
-                /comment/** = anon
-
-                /task/** = anon
-
+                /task/getAllTask = anon
+                /group/findAllGroup = anon
 
                 <!-- Shiro提供了退出登录的配置`logout`，会生成路径为`/logout`的请求地址，访问这个地址即会退出当前账户并清空缓存 -->
                 <!--/logout = logout-->
@@ -178,6 +172,7 @@
 
                 <!-- `/**`表示所有请求，表示访问该地址的用户是身份验证通过或RememberMe登录的都可以 -->
                 /** = user
+
 
             </value>
         </property>

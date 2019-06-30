@@ -49,9 +49,9 @@
     </select>
 
 
-    <select id="findAllUserInGroup" parameterType="Long" resultType="com.swsadWeb.entity.User">
-        SELECT u.id, u.username
-        FROM user_group ug, sys_users u
+    <select id="findAllUserInGroup" parameterType="Long" resultType="com.swsadWeb.entity.UserInfo">
+        SELECT u.*
+        FROM user_group ug, userInfo u
         WHERE
         ug.group_id = #{groupId}
         AND
@@ -59,7 +59,7 @@
     </select>
 
     <select id="findAllGroupByUser" parameterType="Long" resultType="com.swsadWeb.entity.Group">
-        SELECT g.id, g.name
+        SELECT g.*
         FROM user_group ug, `group` g
         WHERE
         ug.user_id = #{userId}
@@ -71,10 +71,11 @@
         SELECT * FROM `group`
     </select>
 
-
-    <select id="findAllTaskInGroup" resultType="com.swsadWeb.entity.Task">
+    <select id="findAllTaskInGroup" parameterType="Long" resultType="com.swsadWeb.entity.Task">
         SELECT * FROM task WHERE group_id = #{groupId}
     </select>
+
+
 
 
 

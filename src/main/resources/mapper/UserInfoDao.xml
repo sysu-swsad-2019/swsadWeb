@@ -131,7 +131,7 @@
 
     <select id="getUserInfoById" resultType="com.swsadWeb.entity.UserInfo" parameterType="Long">
 
-        SELECT username, nickname, sex, phone, email, iconPath FROM userInfo WHERE id = #{id}
+        SELECT * FROM userInfo WHERE id = #{id};
 
     </select>
 

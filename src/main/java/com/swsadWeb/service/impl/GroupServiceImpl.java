@@ -4,6 +4,7 @@ import com.swsadWeb.dao.GroupDao;
 import com.swsadWeb.entity.Group;
 import com.swsadWeb.entity.Task;
 import com.swsadWeb.entity.User;
+import com.swsadWeb.entity.UserInfo;
 import com.swsadWeb.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,7 +40,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public List<User> findAllUserInGroup(Long groupId){
+    public List<UserInfo> findAllUserInGroup(Long groupId){
         return groupDao.findAllUserInGroup(groupId);
     }
 
@@ -51,5 +52,10 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public List<Task> findAllTaskInGroup(Long groupId){
         return groupDao.findAllTaskInGroup(groupId);
+    }
+
+    @Override
+    public List<Group> findAllGroupByUser(Long userId){
+        return groupDao.findAllGroupByUser(userId);
     }
 }

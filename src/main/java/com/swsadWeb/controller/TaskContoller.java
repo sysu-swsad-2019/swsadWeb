@@ -201,14 +201,9 @@ public class TaskContoller {
     //the task the user join in
     @RequestMapping(value = "/getTaskByUsername")
     @ResponseBody
-    public Msg getTaskByUsername() {
-        Subject subject = SecurityUtils.getSubject();
+    public Msg getTaskByUsername(@RequestParam(value = "userId")Long userId) {
 
-        String username = subject.getPrincipal().toString();
-
-        User user = userService.findByName(username);
-
-        List<Task> list = taskService.getTaskByUser(user.getId());
+        List<Task> list = taskService.getTaskByUser(userId);
 
         Msg msg = Msg.success("查找成功");
 
